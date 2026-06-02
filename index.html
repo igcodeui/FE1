@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Final Expense Call Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #e2e8f0; /* Slate 200 */
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #475569;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <header class="bg-slate-800 border-b border-slate-700 shadow-xl sticky top-0 z-50">
+        <div class="max-w-[1600px] w-full mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-amber-500 text-slate-950 font-bold p-2 rounded-lg text-xs tracking-wider">FE PORTAL</div>
+                <h1 class="text-lg font-bold tracking-tight text-white hidden sm:block">Seniors 65+ Phone Scripting Dashboard</h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <span class="px-3 py-1.5 rounded-lg font-semibold text-xs bg-amber-500 text-slate-950 shadow-md hidden md:inline-block">
+                    Exact Copy Flow
+                </span>
+                <button onclick="resetEntirePortal()" class="bg-rose-600 hover:bg-rose-500 text-white font-bold py-1.5 px-3 rounded-lg text-xs tracking-wide uppercase transition-all shadow-md flex items-center gap-1.5">
+                    ⟲ Reset Script
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1 max-w-[1600px] w-full mx-auto p-4 sm:p-6 grid grid-cols-1 xl:grid-cols-12 gap-6">
+        
+        <div class="xl:col-span-8 space-y-6">
+            
+            <div class="bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-lg space-y-4">
+                <div class="flex justify-between items-center border-b border-slate-700/60 pb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-400">OPENING / INTRO</span>
+                    <span class="bg-slate-900 text-amber-400 text-[10px] px-2 py-0.5 rounded font-mono">Step 1</span>
+                </div>
+                
+                <p class="text-sm text-white p-4 bg-slate-900 border-l-4 border-amber-500 rounded-r-xl leading-relaxed">
+                    <strong>Agent:</strong> Hello, my name is <span class="text-amber-300 font-semibold">[Your Name]</span> with Life Advisors. The reason for my call is that you recently requested information about affordable final expense coverage designed to help protect your family from funeral and burial costs. Did I catch you at an okay time?
+                </p>
+
+                <div class="pt-2 space-y-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">(Gather interest)</span>
+                    <p class="text-sm text-slate-200 bg-slate-900/40 p-3.5 rounded border border-slate-700/50 leading-relaxed italic">
+                        <strong>Agent:</strong> Great. Just so I can point you toward the best options, may I ask a few quick questions?
+                    </p>
+                </div>
+
+                <button onclick="revealSection('step-basic-questions')" class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-2.5 px-4 rounded-lg transition-all text-xs flex justify-center items-center gap-1.5 mt-2">
+                    Next: Profiling Questions ➔
+                </button>
+            </div>
+
+            <div id="step-basic-questions" class="hidden bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-lg space-y-4">
+                <div class="flex justify-between items-center border-b border-slate-700/60 pb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-400">BASIC PROFILING</span>
+                    <span class="bg-slate-900 text-amber-400 text-[10px] px-2 py-0.5 rounded font-mono">Step 2</span>
+                </div>
+                
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 space-y-3 font-mono text-sm text-emerald-400">
+                    <p class="flex items-start gap-2.5">
+                        <span class="text-slate-500 font-sans">•</span> 
+                        <span><strong>Agent:</strong> How old are you?</span>
+                    </p>
+                    <p class="flex items-start gap-2.5">
+                        <span class="text-slate-500 font-sans">•</span> 
+                        <span><strong>Agent:</strong> Are you a tobacco user?</span>
+                    </p>
+                    <p class="flex items-start gap-2.5">
+                        <span class="text-slate-500 font-sans">•</span> 
+                        <span><strong>Agent:</strong> Do you currently have any life insurance in place?</span>
+                    </p>
+                    <p class="flex items-start gap-2.5">
+                        <span class="text-slate-500 font-sans">•</span> 
+                        <span><strong>Agent:</strong> What are you hoping to leave behind for your family—$10,000, $20,000, or more?</span>
+                    </p>
+                </div>
+
+                <div class="pt-2">
+                    <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">(Build need)</span>
+                    <p class="text-sm text-slate-200 bg-slate-900/60 p-4 border-l-4 border-amber-500 rounded-r-lg leading-relaxed">
+                        <strong>Agent:</strong> The reason I ask is that funeral costs today can easily run $10,000-$20,000 or more, and many families end up paying those expenses out of pocket.
+                    </p>
+                </div>
+
+                <button onclick="revealSection('step-health-qualify')" class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-2.5 px-4 rounded-lg transition-all text-xs flex justify-center items-center gap-1.5">
+                    Next: Qualify Health Conditions ➔
+                </button>
+            </div>
+
+            <div id="step-health-qualify" class="hidden bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-lg space-y-4">
+                <div class="flex justify-between items-center border-b border-slate-700/60 pb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-400">QUALIFY HEALTH</span>
+                    <span class="bg-slate-900 text-amber-400 text-[10px] px-2 py-0.5 rounded font-mono">Step 3</span>
+                </div>
+                
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">(Qualify health)</span>
+                <p class="text-sm text-white font-semibold -mt-2"><strong>Agent:</strong> To see which plans you qualify for:</p>
+                
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 space-y-3 font-mono text-sm text-rose-400">
+                    <p class="flex items-start gap-2.5">
+                        <span class="text-slate-500 font-sans">•</span> 
+                        <span><strong>Agent:</strong> Have you had any major heart issues, cancer, stroke, or COPD in the last 2 years?</span>
+                    </p>
+                    <p class="flex items-start gap-2.5">
+                        <span class="text-slate-500 font-sans">•</span> 
+                        <span><strong>Agent:</strong> Are you currently hospitalized, in a nursing home, or receiving hospice care?</span>
+                    </p>
+                </div>
+
+                <button onclick="revealSection('step-present-solution')" class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-2.5 px-4 rounded-lg transition-all text-xs flex justify-center items-center gap-1.5">
+                    Next: Present Solution & Premium Range ➔
+                </button>
+            </div>
+
+            <div id="step-present-solution" class="hidden bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-lg space-y-4">
+                <div class="flex justify-between items-center border-b border-slate-700/60 pb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-400">PRESENT SOLUTION</span>
+                    <span class="bg-slate-900 text-amber-400 text-[10px] px-2 py-0.5 rounded font-mono">Step 4</span>
+                </div>
+                
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">(Present solution)</span>
+                
+                <p class="text-sm text-white bg-slate-900 p-4 rounded-lg border border-slate-700 leading-relaxed">
+                    <strong>Agent:</strong> Based on what you’ve shared, it looks like you may qualify for several plans. My job is to help you compare the carriers and find the best value for your budget.
+                </p>
+
+                <div class="pt-2 bg-slate-900/40 p-4 rounded-xl border border-dashed border-slate-700 space-y-1">
+                    <span class="text-[10px] font-bold uppercase text-amber-400 block">PREMIUM VALUE QUERY VERBATIM:</span>
+                    <p class="text-base text-white font-semibold italic">
+                        <strong>Agent:</strong> What monthly premium range would be comfortable for you—around $50, $75, or $100 per month?
+                    </p>
+                </div>
+
+                <button onclick="revealSection('step-close-application')" class="w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-2.5 px-4 rounded-lg text-xs transition-colors shadow-md flex justify-center items-center gap-1.5">
+                    Next: Closing Strategy ➔
+                </button>
+            </div>
+
+            <div id="step-close-application" class="hidden bg-slate-800 border border-slate-700 rounded-xl p-6 shadow-lg space-y-4">
+                <div class="flex justify-between items-center border-b border-slate-700/60 pb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-400">CLOSE THE CALL</span>
+                    <span class="bg-slate-900 text-amber-400 text-[10px] px-2 py-0.5 rounded font-mono">Step 5</span>
+                </div>
+                
+                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider block">(Close)</span>
+                
+                <p class="text-sm text-white leading-relaxed bg-slate-900 p-4 border-l-4 border-amber-500 rounded-r-lg">
+                    <strong>Agent:</strong> Excellent. I have a few options that fit what you’re looking for. The next step is to review the benefits and complete a quick application if you decide one makes sense.
+                </p>
+
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
+                    <span class="text-[10px] font-bold uppercase text-amber-400 block tracking-wider">CLOSING CALL TO ACTION VERBATIM:</span>
+                    <p class="text-sm text-slate-200 font-mono leading-relaxed">
+                        <strong>Agent:</strong> Before I transfer you, may I know who I'm speaking with?
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <button onclick="revealSection('step-now-transfer')" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-2.5 px-4 rounded-lg text-xs tracking-wide uppercase transition-all shadow-md flex justify-center items-center gap-1.5">
+                        📞 Transfer Script
+                    </button>
+                </div>
+            </div>
+
+            <div id="step-now-transfer" class="hidden bg-slate-800 border-2 border-indigo-500/50 rounded-xl p-6 shadow-2xl space-y-4">
+                <div class="flex justify-between items-center border-b border-slate-700/60 pb-2">
+                    <span class="text-xs font-bold uppercase tracking-wider text-indigo-400">Transfer Script</span>
+                    <span class="bg-slate-900 text-indigo-400 text-[10px] px-2 py-0.5 rounded font-mono">Final Step</span>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1">PROMPT STATEMENT:</span>
+                        <p class="text-sm text-white bg-slate-900 p-4 border-l-4 border-indigo-500 rounded-r-lg font-sans leading-relaxed">
+                            <strong>Agent:</strong> Thank you, <span class="text-amber-300 font-semibold">(Leads Name)</span>, I’m now going to bring in <span class="text-amber-300 font-semibold">_____</span>, one of our licensed specialists. I’ll stay on briefly to make the introduction smooth and easy for you.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-slate-700/60 pt-4">
+                        <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-wider block mb-1">AGENT INTRO / WARM TRANSFER VERBATIM:</span>
+                        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                            <p class="text-sm text-slate-200 font-mono leading-relaxed italic">
+                                <strong>Agent:</strong> Hi, <span class="text-amber-300 font-semibold">______</span>, this is <span class="text-amber-300 font-semibold">(Leads Name)</span>. We reviewed their current situation, and they’re interested in exploring affordable protection options. I’ll let you take it from here.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hidden xl:block xl:col-span-4 bg-slate-800 border border-slate-700 rounded-xl p-5 shadow-lg sticky top-24 max-h-[85vh] overflow-y-auto custom-scrollbar space-y-4">
+            
+            <div class="border-b border-slate-700 pb-2">
+                <h2 class="font-bold text-white tracking-tight text-xs uppercase">🛡️ Live Assistance Dashboard</h2>
+            </div>
+
+            <div class="space-y-3">
+                <span class="font-bold text-rose-400 tracking-tight text-[10px] uppercase block border-b border-slate-700 pb-1">Objection Handling Library</span>
+                
+                <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-700 space-y-1.5">
+                    <span class="text-[11px] font-bold text-rose-400 uppercase block font-mono bg-rose-950/30 px-2 py-1 rounded">“I already have coverage.”</span>
+                    <p class="text-xs text-slate-200 leading-relaxed italic">
+                        “That’s great. Most of my clients do. The reason they speak with me is to make sure their coverage is still enough and that they’re not overpaying. It only takes a few minutes to compare.”
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-700 space-y-1.5">
+                    <span class="text-[11px] font-bold text-amber-400 uppercase block font-mono bg-amber-950/30 px-2 py-1 rounded">If skeptical:</span>
+                    <p class="text-xs text-slate-200 leading-relaxed italic">
+                        “That’s fair — this is exactly why we review everything carefully before recommending anything.”
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-700 space-y-1.5">
+                    <span class="text-[11px] font-bold text-emerald-400 uppercase block font-mono bg-emerald-950/30 px-2 py-1 rounded">If worried about cost:</span>
+                    <p class="text-xs text-slate-200 leading-relaxed italic">
+                        “We’re not trying to create another bill — the goal is to find something comfortable and sustainable.”
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-700 space-y-1.5">
+                    <span class="text-[11px] font-bold text-indigo-400 uppercase block font-mono bg-indigo-950/30 px-2 py-1 rounded">If “I already talked to someone”:</span>
+                    <p class="text-xs text-slate-200 leading-relaxed italic">
+                        “Absolutely, and this is simply a second review to make sure nothing was missed and that you’re getting the best value available.”
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-700 space-y-1.5">
+                    <span class="text-[11px] font-bold text-sky-400 uppercase block font-mono bg-sky-950/30 px-2 py-1 rounded">If “I need to think about it”:</span>
+                    <p class="text-xs text-slate-200 leading-relaxed italic">
+                        “Of course — most people do. That’s why we at least make sure you have accurate information and real numbers first.”
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-700 space-y-1.5">
+                    <span class="text-[11px] font-bold text-fuchsia-400 uppercase block font-mono bg-fuchsia-950/30 px-2 py-1 rounded">If older lead:</span>
+                    <p class="text-xs text-slate-200 leading-relaxed italic">
+                        “A lot of people requested information months ago and life just got busy. We’re simply following up to see what still makes sense for you today.”
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-slate-900/50 p-3 rounded-lg border border-slate-700/60 text-[11px] text-slate-400 leading-relaxed">
+                💡 <span class="text-slate-300 font-semibold">Tip:</span> Deliver each rebuttal with a relaxed, confident tone. Validating their condition lowers their shield instantly.
+            </div>
+        </div>
+
+    </main>
+
+    <div class="fixed bottom-4 right-4 z-50 xl:hidden">
+        <button onclick="toggleStatementsModal(true)" class="bg-rose-600 hover:bg-rose-500 text-white font-bold py-3 px-5 rounded-full shadow-2xl text-xs tracking-wider uppercase transition-all flex items-center gap-2 border border-rose-400">
+            🛡️ View Live Rebuttals
+        </button>
+    </div>
+
+    <div id="statements-modal" class="hidden fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-slate-800 border border-slate-700 w-full max-w-[550px] rounded-2xl shadow-2xl flex flex-col overflow-hidden h-[80vh]">
+            
+            <div class="bg-slate-900 px-6 py-4 border-b border-slate-700 flex justify-between items-center shrink-0">
+                <h3 class="text-white font-bold text-sm uppercase tracking-wide flex items-center gap-2">🛡️ Live Objective Assistance</h3>
+                <button onclick="toggleStatementsModal(false)" class="bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-colors">✕ Close</button>
+            </div>
+
+            <div class="p-6 overflow-y-auto custom-scrollbar space-y-4 flex-1">
+                <span class="font-bold text-rose-400 tracking-tight text-xs uppercase block border-b border-slate-700 pb-1">Objection Handling Library</span>
+                
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700/60 space-y-2">
+                    <span class="text-xs font-bold text-rose-400 uppercase block font-mono">“I already have coverage.”</span>
+                    <p class="text-sm text-slate-200 leading-relaxed italic">“That’s great. Most of my clients do. The reason they speak with me is to make sure their coverage is still enough and that they’re not overpaying. It only takes a few minutes to compare.”</p>
+                </div>
+
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700/60 space-y-2">
+                    <span class="text-xs font-bold text-amber-400 uppercase block font-mono">If skeptical:</span>
+                    <p class="text-sm text-slate-200 leading-relaxed italic">“That’s fair — this is exactly why we review everything carefully before recommending anything.”</p>
+                </div>
+
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700/60 space-y-2">
+                    <span class="text-xs font-bold text-rose-400 uppercase block font-mono">If worried about cost:</span>
+                    <p class="text-sm text-slate-200 leading-relaxed italic">“We’re not trying to create another bill — the goal is to find something comfortable and sustainable.”</p>
+                </div>
+
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700/60 space-y-2">
+                    <span class="text-xs font-bold text-indigo-400 uppercase block font-mono">If “I already talked to someone”:</span>
+                    <p class="text-sm text-slate-200 leading-relaxed italic">“Absolutely, and this is simply a second review to make sure nothing was missed and that you’re getting the best value available.”</p>
+                </div>
+
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700/60 space-y-2">
+                    <span class="text-xs font-bold text-sky-400 uppercase block font-mono">If “I need to think about it”:</span>
+                    <p class="text-sm text-slate-200 leading-relaxed italic">“Of course — most people do. That’s why we at least make sure you have accurate information and real numbers first.”</p>
+                </div>
+
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700/60 space-y-2">
+                    <span class="text-xs font-bold text-fuchsia-400 uppercase block font-mono">If older lead:</span>
+                    <p class="text-sm text-slate-200 leading-relaxed italic">“A lot of people requested information months ago and life just got busy. We’re simply following up to see what still makes sense for you today.”</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function revealSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.classList.remove('hidden');
+                element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function toggleStatementsModal(shouldShow) {
+            const modal = document.getElementById('statements-modal');
+            if (shouldShow) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function resetEntirePortal() {
+            document.getElementById('step-basic-questions').classList.add('hidden');
+            document.getElementById('step-health-qualify').classList.add('hidden');
+            document.getElementById('step-present-solution').classList.add('hidden');
+            document.getElementById('step-close-application').classList.add('hidden');
+            document.getElementById('step-now-transfer').classList.add('hidden');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
