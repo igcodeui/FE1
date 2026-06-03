@@ -55,7 +55,55 @@
                 
                 <p class="text-sm text-white p-4 bg-slate-900 border-l-4 border-amber-500 rounded-r-xl leading-relaxed">
                     <strong>Agent:</strong> Hello, my name is <span class="text-amber-300 font-semibold">[Your Name]</span> with Life Advisors. I am just following up regarding the alert we received about your life and health benefits review. Based on our review, you and your family are not yet aware about the enhanced health coverage, funeral and burial package upgrades that are currently available for you. Don’t worry, this is just a review. By updating a few details, we can check whether you may qualify for lower monthly costs, enhanced health coverage, or benefit options that better fit your current situation and long term goals.
-                    <br><br>To start, Are you currently satisfied with your life insurance and final expense coverage?
+                    <br><br>
+                    <span class="text-emerald-400 font-medium">To start, Are you currently satisfied with your life insurance and final expense coverage?</span>
+                </p>
+
+                <div class="bg-slate-900/60 border border-slate-700 rounded-xl p-4 space-y-3">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-rose-400 block">🛑 Common Rebuttals during the first 5 secs</span>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                        <button onclick="showFiveSecRebuttal('what-calling')" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 text-xs py-2 px-3 rounded-lg transition-all font-medium truncate text-left">❓ What are you calling about?</button>
+                        <button onclick="showFiveSecRebuttal('why-calling')" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 text-xs py-2 px-3 rounded-lg transition-all font-medium truncate text-left">🧐 Why are you calling me?</button>
+                        <button onclick="showFiveSecRebuttal('who-are-you')" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 text-xs py-2 px-3 rounded-lg transition-all font-medium truncate text-left">👤 Who are you?</button>
+                        <button onclick="showFiveSecRebuttal('im-good')" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 text-xs py-2 px-3 rounded-lg transition-all font-medium truncate text-left">👍 I am good with insurance!</button>
+                    </div>
+
+                    <div id="five-sec-container" class="hidden border-t border-slate-700/50 pt-3 mt-1">
+                        
+                        <div id="reb-what-calling" class="hidden space-y-2">
+                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-amber-400 bg-amber-950/40 px-2 py-0.5 rounded border border-amber-800/30">Answering: What are you calling about?</span>
+                            <p class="text-xs text-white leading-relaxed italic bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                “I am calling about the alert we received regarding your health and life insurance.”
+                            </p>
+                        </div>
+
+                        <div id="reb-why-calling" class="hidden space-y-2">
+                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-amber-400 bg-amber-950/40 px-2 py-0.5 rounded border border-amber-800/30">Answering: Why are you calling me?</span>
+                            <p class="text-xs text-white leading-relaxed italic bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                “Based on the recent review, it seems that you and your family are not yet aware of the recent updates and upgrades that are currently available for you.”
+                            </p>
+                        </div>
+
+                        <div id="reb-who-are-you" class="hidden space-y-2">
+                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-amber-400 bg-amber-950/40 px-2 py-0.5 rounded border border-amber-800/30">Answering: Who are you?</span>
+                            <p class="text-xs text-white leading-relaxed italic bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                “I am <span class="text-amber-300 not-italic font-semibold">[Your Name]</span> from Health Advisors. My role is to do a benefit review and just update a few details…”
+                            </p>
+                        </div>
+
+                        <div id="reb-im-good" class="hidden space-y-2">
+                            <span class="text-[10px] font-bold uppercase font-mono tracking-wider text-amber-400 bg-amber-950/40 px-2 py-0.5 rounded border border-amber-800/30">Answering: I am good with my insurance!</span>
+                            <p class="text-xs text-white leading-relaxed italic bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                “Perfect. That is the reason why we are calling you. We are just doing benefit review of your current insurance. So, are you satisfied with your current health and life insurance?”
+                            </p>
+                        </div>
+
+                        <button onclick="hideFiveSecRebuttal()" class="w-full mt-2 bg-rose-950/50 hover:bg-rose-900/60 border border-rose-700/60 text-rose-300 font-bold py-1.5 rounded-lg text-[11px] tracking-wide uppercase transition-all">
+                            ↩ Go back to the script
+                        </button>
+                    </div>
+                </div>
 
                 <div class="pt-2 space-y-2">
                     <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block">(Gather interest)</span>
@@ -225,35 +273,35 @@
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-700 space-y-1.5">
-                    <span class="text-[11px] font-bold text-amber-400 uppercase block font-mono bg-amber-950/30 px-2 py-1 rounded">If skeptical:</span>
+                    <span class="text-[11px] font-bold text-rose-400 uppercase block font-mono bg-rose-950/30 px-2 py-1 rounded">If skeptical:</span>
                     <p class="text-xs text-slate-200 leading-relaxed italic">
                         “That’s fair — this is exactly why we review everything carefully before recommending anything.”
                     </p>
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-700 space-y-1.5">
-                    <span class="text-[11px] font-bold text-emerald-400 uppercase block font-mono bg-emerald-950/30 px-2 py-1 rounded">If worried about cost:</span>
+                    <span class="text-[11px] font-bold text-rose-400 uppercase block font-mono bg-rose-950/30 px-2 py-1 rounded">If worried about cost:</span>
                     <p class="text-xs text-slate-200 leading-relaxed italic">
                         “We’re not trying to create another bill — the goal is to find something comfortable and sustainable.”
                     </p>
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-700 space-y-1.5">
-                    <span class="text-[11px] font-bold text-indigo-400 uppercase block font-mono bg-indigo-950/30 px-2 py-1 rounded">If “I already talked to someone”:</span>
+                    <span class="text-[11px] font-bold text-rose-400 uppercase block font-mono bg-rose-950/30 px-2 py-1 rounded">If “I already talked to someone”:</span>
                     <p class="text-xs text-slate-200 leading-relaxed italic">
                         “Absolutely, and this is simply a second review to make sure nothing was missed and that you’re getting the best value available.”
                     </p>
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-700 space-y-1.5">
-                    <span class="text-[11px] font-bold text-sky-400 uppercase block font-mono bg-sky-950/30 px-2 py-1 rounded">If “I need to think about it”:</span>
+                    <span class="text-[11px] font-bold text-rose-400 uppercase block font-mono bg-rose-950/30 px-2 py-1 rounded">If “I need to think about it”:</span>
                     <p class="text-xs text-slate-200 leading-relaxed italic">
                         “Of course — most people do. That’s why we at least make sure you have accurate information and real numbers first.”
                     </p>
                 </div>
 
                 <div class="bg-slate-900 p-3.5 rounded-xl border border-slate-700 space-y-1.5">
-                    <span class="text-[11px] font-bold text-fuchsia-400 uppercase block font-mono bg-fuchsia-950/30 px-2 py-1 rounded">If older lead:</span>
+                    <span class="text-[11px] font-bold text-rose-400 uppercase block font-mono bg-rose-950/30 px-2 py-1 rounded">If older lead:</span>
                     <p class="text-xs text-slate-200 leading-relaxed italic">
                         “A lot of people requested information months ago and life just got busy. We’re simply following up to see what still makes sense for you today.”
                     </p>
@@ -290,7 +338,7 @@
                 </div>
 
                 <div class="bg-slate-900 p-4 rounded-xl border border-slate-700/60 space-y-2">
-                    <span class="text-xs font-bold text-amber-400 uppercase block font-mono">If skeptical:</span>
+                    <span class="text-xs font-bold text-rose-400 uppercase block font-mono">If skeptical:</span>
                     <p class="text-sm text-slate-200 leading-relaxed italic">“That’s fair — this is exactly why we review everything carefully before recommending anything.”</p>
                 </div>
 
@@ -300,17 +348,17 @@
                 </div>
 
                 <div class="bg-slate-900 p-4 rounded-xl border border-slate-700/60 space-y-2">
-                    <span class="text-xs font-bold text-indigo-400 uppercase block font-mono">If “I already talked to someone”:</span>
+                    <span class="text-xs font-bold text-rose-400 uppercase block font-mono">If “I already talked to someone”:</span>
                     <p class="text-sm text-slate-200 leading-relaxed italic">“Absolutely, and this is simply a second review to make sure nothing was missed and that you’re getting the best value available.”</p>
                 </div>
 
                 <div class="bg-slate-900 p-4 rounded-xl border border-slate-700/60 space-y-2">
-                    <span class="text-xs font-bold text-sky-400 uppercase block font-mono">If “I need to think about it”:</span>
+                    <span class="text-xs font-bold text-rose-400 uppercase block font-mono">If “I need to think about it”:</span>
                     <p class="text-sm text-slate-200 leading-relaxed italic">“Of course — most people do. That’s why we at least make sure you have accurate information and real numbers first.”</p>
                 </div>
 
                 <div class="bg-slate-900 p-4 rounded-xl border border-slate-700/60 space-y-2">
-                    <span class="text-xs font-bold text-fuchsia-400 uppercase block font-mono">If older lead:</span>
+                    <span class="text-xs font-bold text-rose-400 uppercase block font-mono">If older lead:</span>
                     <p class="text-sm text-slate-200 leading-relaxed italic">“A lot of people requested information months ago and life just got busy. We’re simply following up to see what still makes sense for you today.”</p>
                 </div>
             </div>
@@ -336,12 +384,34 @@
             }
         }
 
+        function showFiveSecRebuttal(type) {
+            // Un-hide wrapper container
+            document.getElementById('five-sec-container').classList.remove('hidden');
+            
+            // Hide all sub-cards first
+            document.getElementById('reb-what-calling').classList.add('hidden');
+            document.getElementById('reb-why-calling').classList.add('hidden');
+            document.getElementById('reb-who-are-you').classList.add('hidden');
+            document.getElementById('reb-im-good').classList.add('hidden');
+            
+            // Explicitly show targeted option
+            if (type === 'what-calling') document.getElementById('reb-what-calling').classList.remove('hidden');
+            if (type === 'why-calling') document.getElementById('reb-why-calling').classList.remove('hidden');
+            if (type === 'who-are-you') document.getElementById('reb-who-are-you').classList.remove('hidden');
+            if (type === 'im-good') document.getElementById('reb-im-good').classList.remove('hidden');
+        }
+
+        function hideFiveSecRebuttal() {
+            document.getElementById('five-sec-container').classList.add('hidden');
+        }
+
         function resetEntirePortal() {
             document.getElementById('step-basic-questions').classList.add('hidden');
             document.getElementById('step-health-qualify').classList.add('hidden');
             document.getElementById('step-present-solution').classList.add('hidden');
             document.getElementById('step-close-application').classList.add('hidden');
             document.getElementById('step-now-transfer').classList.add('hidden');
+            hideFiveSecRebuttal();
             
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
